@@ -1,0 +1,3 @@
+---
+title: "Cold's Blog"
+---
