@@ -1,0 +1,24 @@
+{{define "main"}}
+<div>
+  <h1><span class="title">{{ .Title | markdownify }}</span></h1>
+  <h4 class="date">
+    <span class="initpost">Published at:</span> {{ .Date | time.Format "2006/01/02" }}
+    &nbsp;&nbsp;&nbsp;
+    <span class="lastmod">Last updated:</span> {{ .Lastmod | time.Format "2006/01/02" }}
+    &nbsp;&nbsp;&nbsp;
+    {{- if and (eq .Site.Params.comment.provider "twikoo") .Site.Params.comment.twikoo.visitor }}
+      {{ $valueSpan := `<span id="twikoo_visitors">0</span>` -}}
+      <span class="pagepv">PagePV:</span> {{ $valueSpan | safeHTML }} 
+    {{- end }}
+  </h4>
+</div>
+
+<main>
+  {{ .Content }}
+</main>
+
+{{ if not (eq .Params.comment false) }}
+  {{ partial "comments/include.html" . }}
+{{ end }}
+
+{{end}}

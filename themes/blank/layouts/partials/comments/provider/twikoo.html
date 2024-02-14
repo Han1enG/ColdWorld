@@ -1,0 +1,16 @@
+<div class="pagination__title">
+    <span class="pagination__title-h" style="font-size: 20px;">💬Discussion</span>
+    <hr />
+</div>
+<script src="//cdn.jsdelivr.net/npm/twikoo@1.6.21/dist/twikoo.all.min.js"></script>
+<div id="tcomment"></div>
+{{- with .Site.Params.comment.twikoo -}}
+<script>
+    twikoo.init({
+        envId: "{{- .envId -}}",  //腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
+        el: "#tcomment", // 容器元素
+        // lang: 'zh-CN', // 用于手动设定评论区语言，支持的语言列表 https://github.com/imaegoo/twikoo/blob/main/src/client/utils/i18n/index.js
+        // region: '{{ .Site.Params.comment.twikoo.region }}',  // 环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；Vercel 环境不填
+    });
+</script>
+{{- end -}}
