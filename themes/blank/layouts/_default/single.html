@@ -8,12 +8,19 @@
     &nbsp;&nbsp;&nbsp;
     {{- if and (eq .Site.Params.comment.provider "twikoo") .Site.Params.comment.twikoo.visitor }}
       {{ $valueSpan := `<span id="twikoo_visitors">0</span>` -}}
-      <span class="pagepv">PagePV:</span> {{ $valueSpan | safeHTML }} 
+      <span class="pagepv">PagePV:</span> {{ $valueSpan | safeHTML }}
+      &nbsp;&nbsp;&nbsp; 
     {{- end }}
+    <span class="wordcount">WordCount:</span> {{ .WordCount }}
   </h4>
 </div>
 
 <main>
+  {{- if (.Site.Params.page.toc) }}
+    <div style="position: fixed; right:5px;max-width:300px; overflow:auto; top: 100px; width: 10vw; bottom:50px">
+      {{ partial "toc.html" . }}
+    </div>
+  {{- end }}
   {{ .Content }}
 </main>
 
