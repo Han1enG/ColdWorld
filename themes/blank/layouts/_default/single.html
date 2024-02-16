@@ -17,7 +17,7 @@
 
 <main>
   {{- if (.Site.Params.page.toc) }}
-    <div style="position: fixed; right:5px;max-width:300px; overflow:auto; top: 100px; width: 10vw; bottom:50px">
+    <div class="toc-container" style="position: fixed; right:5px;max-width:300px; overflow:auto; top: 100px; width: 10vw; bottom:50px">
       {{ partial "toc.html" . }}
     </div>
   {{- end }}
