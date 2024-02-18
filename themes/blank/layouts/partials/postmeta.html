@@ -1,0 +1,7 @@
+<span id="post_meta_style_initpost" class="post_meta_style">Published at:</span>{{ .Date | time.Format "2006/01/02" }}&nbsp;&nbsp;&nbsp;
+<span id="post_meta_style_lastmod" class="post_meta_style">Last updated:</span>{{ .Lastmod | time.Format "2006/01/02" }}&nbsp;&nbsp;&nbsp;
+{{- if and (eq .Site.Params.comment.provider "twikoo") .Site.Params.comment.twikoo.visitor }}
+{{ $valueSpan := `<span id="twikoo_visitors">0</span>` -}}
+<span id="post_meta_style_pagepv" class="post_meta_style">PagePV:</span>{{ $valueSpan | safeHTML }}&nbsp;&nbsp;&nbsp;
+{{- end }}
+<span id="post_meta_style_author" class="post_meta_style">Author:</span>{{ .Site.Params.author.name }}&nbsp;&nbsp;&nbsp;

@@ -1,11 +1,33 @@
-<footer>
+<footer class="footer">
   <hr />
-  <small>
-    <span>
-      Copyright 2022-{{now.Format "2006"}} <a href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2023006518号</a>
-    </span>
-    <span>
-      All articles on this site are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a >
-    </span>
-  </small>
+  <span>
+    Copyright 2022-{{now.Format "2006"}} <a href="https://beian.miit.gov.cn/" target="_blank">冀ICP备2023006518号</a>
+  </span>
+  <span>
+    All articles on this site are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a >
+  </span>
 </footer>
+
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+  <span class="topInner">
+      <svg class="topSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+          <path d="M12 6H0l6-6z"/>
+      </svg>
+      <span id="read_progress"></span>
+  </span>
+</a>
+
+<script>
+  let mybutton = document.getElementById("top-link");
+  window.onscroll = function () {
+      var currentScrollPosition = window.pageYOffset;
+      if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+          mybutton.style.visibility = "visible";
+          mybutton.style.opacity = "1";
+          
+      } else {
+          mybutton.style.visibility = "hidden";
+          mybutton.style.opacity = "0";
+      }
+  };
+</script>
