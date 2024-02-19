@@ -1,25 +1,16 @@
 {{define "main"}}
-{{- if (.Site.Params.page.toc) }}
-{{ partial "toc.html" . }}
-{{- end }}
 <article class="post-single">
   <div id="single-content">
     <header class="post-header">
-      <div class="breadcrumbs">
-        {{ partial "breadcrumb.html" . }}
-      </div>
+      <div class="breadcrumbs">{{ partial "breadcrumb.html" . }}</div>
       <h1 class="post-title">{{ .Title | markdownify }}</h1>
-      <!-- <div class="post-description"></div> -->
-      <div class="post-meta">
-        <span class="parent-post-meta">
-          {{ partial "postmeta.html" . }}
-        </span>
-      </div>
+      <div class="post-meta">{{ partial "postmeta.html" . }}</div>
     </header>
     {{- if .Content }}
-    <div class="post-content">
-      {{ .Content }}
-    </div>
+    {{- if (.Site.Params.page.toc) }}
+      {{ partial "toc.html" . }}
+    {{- end }}
+    <div class="post-content">{{ .Content }}</div>
     {{- end }}
   </div>
 </article>
