@@ -2,7 +2,9 @@
 <article class="post-single">
   <div id="single-content">
     <header class="post-header">
+      {{- if (.Site.Params.page.breadcrumb.enable) }}
       <div class="breadcrumbs">{{ partial "breadcrumb.html" . }}</div>
+      {{- end }}
       <h1 class="post-title">{{ .Title | markdownify }}</h1>
       <div class="post-meta">{{ partial "postmeta.html" . }}</div>
     </header>
