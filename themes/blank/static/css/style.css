@@ -79,7 +79,7 @@ a {
 	color: #1e28ea
 }
 
-.inner a,a {
+.inner a, a {
 	text-decoration: none
 }
 
@@ -521,8 +521,7 @@ body:not(.dark) #sun {
 	padding-bottom: .1rem;
 	font-weight: 600;
 	font-size: 100%;
-	border-bottom: 1px solid transparent;
-	border-bottom-color: var(--secondary)
+	text-decoration: underline;
 }
 
 .dark .active {
@@ -710,4 +709,11 @@ img:active {
   border-radius: unset;
   width: 100%;
   margin: 0 2px 40px
+}
+
+.toc a {
+	display:block;
+	overflow: hidden;
+	white-space: nowrap;
+   	text-overflow: ellipsis;
 }
