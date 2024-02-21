@@ -1,11 +1,12 @@
 ---
-title: Angular实践一搭建环境+创建项目
+title: Angular 实践一搭建环境+创建项目
 date: 2023-03-07 20:21:30
 tags:
   - Angular
 categories: 前端
 ---
-> 公司要求使用 `Angular`，学过 `VUE`，了解过 `React`，偏偏是没用过的 `Angular`，重头啃
+
+> 实习公司要求使用 `Angular`，学过 `VUE`，了解过 `React`，偏偏是没用过的 `Angular`，重头啃
 
 ## 安装 `node`
 
@@ -39,6 +40,7 @@ $ ng v # ng version
    ```bash
    $ set-ExecutionPolicy RemoteSigned
    ```
+
 3. 输入下面指令查看当前状态
 
    ```bash
@@ -74,6 +76,7 @@ $ npm uninstall -g @angular/cli
    ```
 
    ![image-20230307210538230](https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230307210541.png)
+
 2. 创建好之后的项目结构如下：
    ![image-20230307211545952](https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20230307211739.png)
 3. `cd`到项目的目录地址，输入命令：
