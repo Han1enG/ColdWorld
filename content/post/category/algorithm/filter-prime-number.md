@@ -4,7 +4,7 @@ date: 2023-01-01 09:48:07
 tags:
   - Algorithm
   - Math
-categories: C++
+categories: Algorithm
 katex: true
 ---
 

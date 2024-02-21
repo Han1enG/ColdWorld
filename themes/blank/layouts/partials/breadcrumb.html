@@ -11,6 +11,8 @@
         <a href="{{ .p1.Permalink }}">{{ .p1.Title }}</a>
     </li>
     {{ end }} -->
+
+
     <!-- 不显示到最后一级 -->
     {{- $url := replace .Parent.Permalink (printf "%s" .Site.BaseURL) "" }}
     {{- $lang_url := strings.TrimPrefix (printf "%s/" .Lang) $url -}}
@@ -18,13 +20,13 @@
     <a href="{{ "" | absLangURL }}">🏠 {{ i18n "home" | default "Home" }}</a>
     {{- $scratch := newScratch }}
     {{- range $index, $element := split $lang_url "/" }}
-
-    {{- $scratch.Add "path" (printf "%s/" $element )}}
-    {{- $bc_pg := $.Site.GetPage ($scratch.Get "path") -}}
-
-    {{- if (and ($bc_pg) (gt (len . ) 0))}}
-    {{- print "&nbsp;»&nbsp;" | safeHTML -}}<a href="{{ $bc_pg.Permalink }}">{{ $bc_pg.Name }}</a>
-    {{- end }}
+        
+        {{- $scratch.Add "path" (printf "%s/" $element )}}
+        {{- $bc_pg := $.Site.GetPage ($scratch.Get "path") -}}
+        <!-- {{- printf "scratch: %s bc_pg: %s" $element $bc_pg | safeHTML }} -->
+        {{- if (and ($bc_pg) (gt (len . ) 0))}}
+        {{- print "&nbsp;»&nbsp;" | safeHTML -}}<a href="{{ $bc_pg.Permalink }}">{{ $bc_pg.Name }}</a>
+        {{- end }}
 
     {{- end -}}
 </div>
