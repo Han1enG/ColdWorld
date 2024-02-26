@@ -6,4 +6,6 @@
     <span id="post_meta_style_pagepv" class="post_meta_style">PagePV:</span>{{ $valueSpan | safeHTML }}&nbsp;&nbsp;&nbsp;
     {{- end }}
     <span id="post_meta_style_author" class="post_meta_style">Author:</span>{{ .Site.Params.author.name }}&nbsp;&nbsp;&nbsp;    
+    <!-- <span id="post_meta_style_tags" class="post_meta_style">Tags:</span>{{ range .Params.tags }}<a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}&nbsp;</a>{{ end }}&nbsp;&nbsp;&nbsp;
+    <span id="post_meta_style_categories" class="post_meta_style">Category:</span><a href="{{ "/categories/" | relLangURL }}{{ .Params.categories | urlize }}">{{ .Params.categories }}</a>&nbsp;&nbsp;&nbsp;     -->
 </span>
