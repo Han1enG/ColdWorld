@@ -2,7 +2,7 @@
 title = '解析 Yaml 文件失败使用默认值替换失败字段'
 date = 2024-02-28T22:52:10+08:00
 tags = ["Golang", "Yaml"]
-categories = ["Technology"]
+categories = "Technology"
 +++
 
 ### 场景
