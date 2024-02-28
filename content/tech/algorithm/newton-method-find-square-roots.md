@@ -5,6 +5,7 @@ tags:
   - Algrithm
   - Math
 categories: Technology
+katex: true
 ---
 
 ![牛顿法](https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20240219231230.gif)
