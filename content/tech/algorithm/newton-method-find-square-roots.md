@@ -2,7 +2,7 @@
 title: 牛顿法求解平方根
 date: 2023-05-16 12:50:15
 tags:
-  - Algrithm
+  - Algorithm
   - Math
 categories: Technology
 katex: true

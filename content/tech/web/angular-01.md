@@ -3,7 +3,7 @@ title: Angular 实践一搭建环境+创建项目
 date: 2023-03-07 20:21:30
 tags:
   - Angular
-categories: 前端
+categories: Front-end
 ---
 
 > 实习公司要求使用 `Angular`，学过 `VUE`，了解过 `React`，偏偏是没用过的 `Angular`，重头啃

@@ -2,7 +2,7 @@
 title: 利用Github分支备份Hexo博客源文件
 date: 2023-03-03 21:41:58
 tags:
-  - Github
+  - Git
   - Hexo
 categories: Blog
 ---
@@ -32,6 +32,7 @@ $ git clone git@...git #(github page 的仓库地址)
 ### 开始备份
 
 进入到博客的根目录下`Git Bash`
+
 ```bash
 $ git add .
 $ git commit -m "Backup"
@@ -53,29 +54,22 @@ $ hexo g -d
 ## 本地恢复
 
 1. 换一台电脑，配置好 `Hexo` 的环境，配置 `Git SSH key`，把博客源文件代码克隆下来:
-    ```bash
-    $ git clone git@...git # (github page 的仓库地址)
-    ```
+
+   ```bash
+   $ git clone git@...git # (github page 的仓库地址)
+   ```
 
 2. 克隆后，默认分支是 `master`，需要切换到`hexo`分支（省略）
 
-    ```bash
-    $ git branch -a # 查看所有分支
-    $ git checkout origin/hexo # 切换到xxx分支
-    ```
+   ```bash
+   $ git branch -a # 查看所有分支
+   $ git checkout origin/hexo # 切换到xxx分支
+   ```
 
 3. 执行如下命令
-    ```bash
-    npm install hexo-cli --save
-    npm install
-    npm install hexo-deployer-git --save
-    ```
 
-    
-
-
-
-
-
-
-
+   ```bash
+   npm install hexo-cli --save
+   npm install
+   npm install hexo-deployer-git --save
+   ```
