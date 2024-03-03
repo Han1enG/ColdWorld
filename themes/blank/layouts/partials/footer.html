@@ -48,7 +48,7 @@
   };
 </script>
 
-{{- if (and (eq .Kind "page") (ne .Layout "archives") (ne .Layout "search") (.Site.Params.ShowCodeCopyButtons)) }}
+{{- if (and (eq .Kind "page") (ne .Layout "archives") (ne .Layout "search") (.Site.Params.showCodeCopyButtons)) }}
 <script>
   document.querySelectorAll('pre > code').forEach((codeblock) => {
       const container = codeblock.parentNode.parentNode;
