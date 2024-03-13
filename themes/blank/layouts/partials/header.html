@@ -2,29 +2,11 @@
   <nav class="nav">
     <div class="logo">
       <a href="http://www.coldcoding.top" accesskey="h" title="Cold World">
-        <img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20240219225844.jpg" alt="logo" aria-label="logo" height="35">
+        <img src="https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20240219225844.jpg" alt="logo" aria-label="logo">
         {{.Site.Title}}
       </a>
-      <!-- <div class="logo-switches">
-        <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-            <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-            <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="5"></circle>
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-            </svg>
-        </button>
-      </div> -->
     </div>
-    <nav>
+    <nav class="menuPc">
       <ul class="menu wide">
         <!-- {{ range .Site.Menus.main }}
         <li>
@@ -53,20 +35,6 @@
                     {{- end -}}
                 </div>
             </div>
-            <div class="dropdown mobile">
-              <a {{ if .URL }}href="{{ .URL }}"{{ else }}href="javascript:void(0);"{{ end }} class="menu-item menu-more dropbtn" title="{{ .Title }}" {{ if eq .Post "_blank" }}target="_blank" rel="noopener"{{ end }}>
-                  {{- .Pre | safeHTML }} {{ .Name }} {{ if ne .Post "_blank" }}{{ .Post | safeHTML -}}{{ end }}
-              </a>
-              <div class="menu-more-content dropdown-content">
-                  {{- range .Children -}}
-                      {{- $url := .URL | relLangURL -}}
-                      {{- with .Page -}}
-                          {{- $url = .RelPermalink -}}
-                      {{- end -}}
-                          <a href="{{ $url }}" title="{{ .Title }}" {{ if eq .Post "_blank" }}target="_blank" rel="noopener"{{ end }}>{{- .Pre | safeHTML }} {{ .Name }} {{ if ne .Post "_blank" }}{{ .Post | safeHTML -}}{{ end }}</a>
-                  {{- end -}}
-              </div>
-            </div>
           {{ else }}
             {{- $url := .URL | relLangURL -}}
             {{- with .Page -}}
@@ -80,5 +48,83 @@
         {{- end -}}
       </ul>
     </nav>
+    <div class="menuMobile">
+      <button id="menu-button" onclick="toggleMenu()">
+        <span class="relative block icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"></path></svg>
+        </span>
+      </button>
+      <div class="menu-overlay" id="menuOverlay">
+        <ul class="menu-items" id="menuItems">
+          <li>
+            <button onclick="closeMenu()">
+              <span class="relative block icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"></path></svg>
+              </span>
+            </button>
+          </li>
+          {{- range .Site.Menus.main -}}
+          {{ if .HasChildren }}
+            <li>
+              <div class="dropdown mobile">
+                <a {{ if .URL }}href="{{ .URL }}"{{ else }}href="javascript:void(0);"{{ end }} class="menu-item menu-more dropbtn" title="{{ .Title }}" {{ if eq .Post "_blank" }}target="_blank" rel="noopener"{{ end }}>
+                    {{- .Pre | safeHTML }} {{ .Name }} {{ if ne .Post "_blank" }}{{ .Post | safeHTML -}}{{ end }}
+                </a>
+                <div class="menu-more-content dropdown-content">
+                    {{- range .Children -}}
+                        {{- $url := .URL | relLangURL -}}
+                        {{- with .Page -}}
+                            {{- $url = .RelPermalink -}}
+                        {{- end -}}
+                            <a href="{{ $url }}" title="{{ .Title }}" {{ if eq .Post "_blank" }}target="_blank" rel="noopener"{{ end }}>{{- .Pre | safeHTML }} {{ .Name }} {{ if ne .Post "_blank" }}{{ .Post | safeHTML -}}{{ end }}</a>
+                    {{- end -}}
+                </div>
+              </div>
+            </li>
+          {{ else }}
+            {{- $url := .URL | relLangURL -}}
+            {{- with .Page -}}
+            {{- $url = .RelPermalink -}}
+            {{- end -}}
+            <li>
+              <a class="menu-item{{ if $.IsMenuCurrent `main` . | or ($.HasMenuCurrent `main` .) | or (eq $.RelPermalink $url) }} active{{ end }}"
+                href="{{ $url }}" {{ with .Title }} title="{{ . }}" {{ end }}{{ if (urls.Parse $url).Host }} rel="noopener noreffer" target="_blank" {{ end }}>
+                {{- .Pre | safeHTML }} {{ .Name }} {{ if ne .Post "_blank" }}{{ .Post | safeHTML -}}{{ end }}
+            </a>
+            </li>
+          {{- end -}}
+          {{- end -}}
+        </ul>
+      </div>
+    </div>
   </nav>
 </div>
+
+<script>
+  let documentTop = 0; // 记录按下按钮时的 `top` 值
+  const body = document.body;
+
+  function toggleMenu() {
+    var menuOverlay = document.getElementById("menuOverlay");
+    menuOverlay.classList.toggle("show");
+    if (menuOverlay.classList.contains("show")) {
+      // 隐藏菜单按钮
+      var menuButton = document.getElementById("menu-button");
+      menuButton.style.display = "none";
+      // 禁用底层页面滚动
+      documentTop = document.scrollingElement.scrollTop;
+      body.style.position = "fixed"
+      body.style.top = -documentTop + "px";
+    }
+  }
+  function closeMenu() {
+    var menuOverlay = document.getElementById("menuOverlay");
+    menuOverlay.classList.remove("show");
+    var menuButton = document.getElementById("menu-button");
+    menuButton.style.display = "inline-block";
+    // 启用底层页面滚动
+    body.style.position = "static";
+    body.style.top = "auto";
+    document.scrollingElement.scrollTop = documentTop;
+  }
+</script>
