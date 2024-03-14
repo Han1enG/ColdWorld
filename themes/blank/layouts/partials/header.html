@@ -117,6 +117,16 @@
       body.style.top = -documentTop + "px";
     }
   }
+
+  document.addEventListener("click", function(event) {
+    if (menuOverlay.classList.contains("show")) {
+      console.log(event.target)
+      if (event.target.classList.contains("show")) {
+        closeMenu(); 
+      }
+    }
+  });
+  
   function closeMenu() {
     var menuOverlay = document.getElementById("menuOverlay");
     menuOverlay.classList.remove("show");

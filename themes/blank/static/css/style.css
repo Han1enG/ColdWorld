@@ -152,7 +152,7 @@ td,th {
 }
 
 .menu-items li {
-    margin: 5px 10px; /* 菜单项间隔为 10px，靠右对齐 */
+    margin: 5px 15px; /* 菜单项间隔为 10px，靠右对齐 */
 	line-height: 1.75em;
 }
 
@@ -705,7 +705,7 @@ img:active {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: rgb(249, 249, 249, 0.9);
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   line-height: 1.3rem;
@@ -763,13 +763,14 @@ img:active {
 		position: fixed;
 		top: 0;
 		left: 0;
-		width: 100%;
-		height: 100%;
+		width: 100vw;
+		height: 100vh;
 		backdrop-filter: blur(4px);
-		z-index: 1;
+		z-index: 30;
 		overflow: auto; /* 禁止底层滚动 */
 		flex-direction: column;
 		align-items: flex-end;
+		background-color: rgba(241, 245, 249, .5);
     }
 }
 
@@ -836,12 +837,8 @@ img:active {
 	.menu-more-content {
 		display: none;
 		position: absolute;
-
-		/* 调整二级菜单显示位置到一级菜单左侧 */
-		top: 13vh;
-		left: 36vw;
-		min-width: 150px;
-		/* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); */
+		min-width: 60px;
+		right: 0;
 		z-index: 1;
 	}
 
