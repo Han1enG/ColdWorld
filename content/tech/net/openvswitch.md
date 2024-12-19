@@ -1,7 +1,6 @@
 +++
 title = 'OpenVSwitch'
 date = 2023-07-17T21:53:08+08:00
-draft = false
 tags = ["Net"]
 categories = "Technology"
 katex = false

@@ -5,7 +5,6 @@ tags:
   - WorldSeries
   - Dodgers
 categories: Baseball
-katex: false
 ---
 
 ![4afb341e45714dc7](https://images-1311785948.cos.ap-chengdu.myqcloud.com/typora/20241219222623.png)
